@@ -2277,7 +2277,7 @@ class UA(object):
                 self.browser['version'] = Version({
                     'value': match.group(1),
                     'details': 3,
-                    builds: False
+                    'builds': False
                 })
 
         # CFNetwork ios网络库
