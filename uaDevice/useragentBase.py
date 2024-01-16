@@ -2930,7 +2930,9 @@ class UA(object):
             if self.browser['name'] is 'Safari':
                 # match = optimizedSearch(r'AppleWebKit\/([0-9]+.[0-9]+)', ua, re.I).group(1)
                 # optimizedSearch(r'Safari\/([0-9]+.[0-9]+)', ua, re.I).group(1)
-                if self.os['name'] is not 'iOS' and optimizedSearch(r'AppleWebKit\/([0-9]+.[0-9]+)', ua, re.I).group(1) is not optimizedSearch(r'Safari\/([0-9]+.[0-9]+)', ua, re.I).group(1):
+                awk_match = optimizedSearch(r'AppleWebKit\/([0-9]+.[0-9]+)', ua, re.I)
+                safari_match = optimizedSearch(r'Safari\/([0-9]+.[0-9]+)', ua, re.I)
+                if self.os['name'] is not 'iOS' and awk_match and safari_match and awk_match.group(1) is not safari_match.group(1):
                     self.features.append('safariMismatch')
                     self.camouflage = True
 
