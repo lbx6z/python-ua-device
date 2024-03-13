@@ -3,6 +3,7 @@ import sys
 import re
 import os
 import json
+import traceback
 from imp import reload
 reload(sys)
 if sys.version_info < (3, 0):
@@ -19,7 +20,12 @@ def optimizedSearch(regStr, matchStr, flags=0):
     if regStr not in regObj:
         regObj[regStr] = re.compile(regStr, flags)
 
-    return regObj[regStr].search(matchStr)
+    try:
+        return regObj[regStr].search(matchStr)
+    except:
+        print(locals())
+        traceback.print_exc()
+        return None
 
 
 def optimizedSub(regStr, replaceStr, matchStr, count=0, flags=0):
