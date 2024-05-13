@@ -45,8 +45,12 @@ class Version(object):
         self.details = v['details'] if 'details' in v else None
         self.minor = -1
         self.type = ''
+
     def __str__(self):
         return self.original
+
+    def __bool__(self):
+        return bool(self.original)
 
 
 class UA(object):
