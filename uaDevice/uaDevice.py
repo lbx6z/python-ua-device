@@ -8,7 +8,7 @@ reload(sys)
 if sys.version_info < (3, 0):
     sys.setdefaultencoding('utf-8')
 sys.path.append('./')
-from useragentBase import *
+from .useragentBase import *
 
 tmpData = {
     'ua': '',

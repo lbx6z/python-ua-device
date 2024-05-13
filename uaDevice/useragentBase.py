@@ -10,7 +10,7 @@ if sys.version_info < (3, 0):
     sys.setdefaultencoding('utf-8')
 sys.path.append('./')
 
-from models import *
+from .models import *
 
 regObj = {
 
